@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:js';
+import 'package:js/js.dart';
 
 
 import 'package:flutter/cupertino.dart';
@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds:(5)),() {
+    Timer(Duration(seconds:5),() {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder:  (BuildContext context) => HomeScreen()));
     });
     return Scaffold(
