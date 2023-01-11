@@ -1,8 +1,8 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/style/app_style.dart';
+
 class NoteEditorScreen extends StatefulWidget {
   const NoteEditorScreen({Key? key}) : super(key: key);
 
@@ -24,8 +24,9 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
         backgroundColor: AppStyle.cardColor[color_id],
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text(" add new note",
-        style: TextStyle(color: Colors.black),
+        title: Text(
+          " add new note",
+          style: TextStyle(color: Colors.black),
         ),
       ),
       body: Padding(
@@ -41,8 +42,13 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
               ),
               style: AppStyle.mainTitle,
             ),
-            SizedBox(height: 8.0,),
-            Text(date, style: AppStyle.dateTitle,),
+            SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              date,
+              style: AppStyle.dateTitle,
+            ),
             SizedBox(
               height: 28.0,
             ),

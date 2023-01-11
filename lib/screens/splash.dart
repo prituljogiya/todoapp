@@ -15,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds:5),() {
+    Timer(Duration(seconds:2),() {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder:  (BuildContext context) => HomeScreen()));
     });
     return Scaffold(
@@ -26,8 +26,6 @@ class _SplashScreenState extends State<SplashScreen> {
           children:<Widget> [
             Image.asset('assets/notes.png',
               height: 200,),
-            SizedBox(height: 20.0,),
-            Image.asset('assets/loading.gif')
           ],
         ) ,
       ),

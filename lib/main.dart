@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:todoapp/screens/splash.dart';
 import 'dart:async';
 
+import 'package:todoapp/screens/welcome_screen.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      home: WelcomeScreen(),
 
     );
   }
