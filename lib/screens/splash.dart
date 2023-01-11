@@ -1,7 +1,4 @@
 import 'dart:async';
-import 'package:js/js.dart';
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif/flutter_gif.dart';
