@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/screens/home_screen.dart';
+import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/screens/signup_screen.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
 
@@ -15,6 +16,7 @@ class LogInscreen extends StatefulWidget {
 
 class _LogInscreenState extends State<LogInscreen> {
   bool _obscureText= true;
+
   @override
   Widget build(BuildContext context) {
     var passText=TextEditingController();
@@ -42,8 +44,10 @@ class _LogInscreenState extends State<LogInscreen> {
                   child: Image(
                 image: AssetImage('assets/notes.png'),
               )),
+              ReuseableWidget(hinttext: "Email"),
+              ReuseableWidget(hinttext: "password"),
               Text(
-                'Create a new Account',
+                'Sign In',
                 style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -166,7 +170,8 @@ class _LogInscreenState extends State<LogInscreen> {
                     ),
                   ),
                 ],
-              )
+              ),
+
 
             ],
           ),
