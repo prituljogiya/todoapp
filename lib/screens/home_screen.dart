@@ -57,13 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisCount: 2),
                       children: snapshot.data!.docs
                           .map<Widget>((note) => noteCard(() {
-                            Navigator.push(context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      NoteReaderScreen(note),
-                            ));
-                      },note))
-                    .toList(),
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          NoteReaderScreen(note),
+                                    ));
+                              }, note))
+                          .toList(),
                     );
                   }
                   return Text(
@@ -78,10 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.push(context,
+          Navigator.push(
+              context,
               MaterialPageRoute(
-                builder: (context) =>
-                    NoteEditorScreen(),
+                builder: (context) => NoteEditorScreen(),
               ));
         },
         label: Text(" Add Note"),

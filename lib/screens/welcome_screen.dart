@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:todoapp/screens/login_screen.dart';
+import 'package:todoapp/screens/signup_screen.dart';
 import 'package:todoapp/style/app_style.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -13,11 +15,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.mainColor,
-      body: SafeArea(
-        child: Column(
+        backgroundColor: AppStyle.mainColor,
+        body: SafeArea(
+            child: Column(
           children: [
-          Center(child: Image( image: AssetImage('assets/notes.png'),)),
+            const Center(
+                child: Image(
+              image: AssetImage('assets/notes.png'),
+            )),
             Text(
               'your notes',
               style: GoogleFonts.roboto(
@@ -26,11 +31,59 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 fontSize: 22,
               ),
             ),
-
+            const SizedBox(
+              height: 20,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          LogInscreen(),
+                    ));
+              },
+              child: Container(
+                height: 53,
+                width: 353,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(21),
+                  color: Colors.white,
+                ),
+                child: Center(child: Text("Sign In",
+                    style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,)
+                )),
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          SignUpScreen(),
+                    ));
+              },
+              child: Container(
+                height: 53,
+                width: 353,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(21),
+                  color: Colors.white,
+                ),
+                child: Center(child: Text("Create an Account",
+                    style: GoogleFonts.roboto(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,)
+                )),
+              ),
+            )
           ],
-        )
-          )
-
-    );
+        )));
   }
 }
