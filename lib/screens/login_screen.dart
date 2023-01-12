@@ -43,7 +43,7 @@ class _LogInscreenState extends State<LogInscreen> {
                 image: AssetImage('assets/notes.png'),
               )),
               Text(
-                'Sign In',
+                'Create a new Account',
                 style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
