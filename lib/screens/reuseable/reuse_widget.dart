@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ReuseableWidget extends StatefulWidget {
-  const ReuseableWidget({Key? key,
-  this.hinttext,
+  const ReuseableWidget({
+    Key? key,
+    this.hinttext,
     required this.icon,
     this.iconsufix,
-   this.isObsecure = false,
+    this.isObsecure = false,
     required this.controller,
-
-   }
-      ) : super(key: key);
+  }) : super(key: key);
   final String? hinttext;
-  final  IconData icon;
-  final  IconData? iconsufix;
+  final IconData icon;
+  final IconData? iconsufix;
   final bool isObsecure;
   final TextEditingController controller;
-
 
   @override
   State<ReuseableWidget> createState() => _ReuseableWidgetState();
@@ -98,7 +96,7 @@ class RuseablePassword extends StatefulWidget {
   final String? hinttext;
   final  IconData icon;
   final  IconData? iconsufix;
-  final bool isObsecure;
+   final bool isObsecure;
   final TextEditingController controller;
 
   @override

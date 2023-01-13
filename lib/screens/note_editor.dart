@@ -12,6 +12,7 @@ class NoteEditorScreen extends StatefulWidget {
 }
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
+
   int color_id=Random().nextInt(AppStyle.cardColor.length);
   String date=DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now()).toString();
   TextEditingController _titleController= TextEditingController();
@@ -26,7 +27,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          " add new note",
+          " Add New Note",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -38,20 +39,21 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
             TextField(
               controller: _titleController,
               decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "note title",
+               // border: OutlineInputBorder(),
+                hoverColor: Colors.transparent,
+                hintText: "Note title",
               ),
               style: AppStyle.mainTitle,
             ),
             SizedBox(
-              height: 8.0,
+              height: 20.0,
             ),
             Text(
               date,
               style: AppStyle.dateTitle,
             ),
             SizedBox(
-              height: 28.0,
+              height: 20.0,
             ),
             TextFormField(
               controller: _mainController,
@@ -59,7 +61,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
               maxLines: null,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: "note content",
+                hintText: "Note content",
               ),
               style: AppStyle.mainContent,
             ),

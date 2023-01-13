@@ -78,11 +78,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const SizedBox(
                           height: 20.0,
                         ),
-                        RuseablePassword(icon: Icons.security_outlined, isObsecure:true, controller: passTextController,hinttext: "password",),
+                        RuseablePassword(icon: Icons.security_outlined, isObsecure:true, controller: passTextController,hinttext: "password",iconsufix: Icons.visibility,),
                         const SizedBox(
                           height: 20.0,
                         ),
-                        RuseablePassword(icon: Icons.security_outlined, isObsecure:true, controller: confirmPassTextController,hinttext: "Confirm Password",),
+                        RuseablePassword(icon: Icons.security_outlined, isObsecure:true, controller: confirmPassTextController,hinttext: "Confirm Password",iconsufix:Icons.visibility),
                         /* ReuseableWidget(icon: Icons.security,hinttext: "Password",iconsufix:Icons.visibility,isObsecure: true,controller: passTextController,),
                         const SizedBox(
                           height: 20.0,

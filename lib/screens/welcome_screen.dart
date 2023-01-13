@@ -23,7 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const Center(
                 child:ReuseableImage()),
             Text(
-              'your notes',
+              'Welcome Your notes',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
