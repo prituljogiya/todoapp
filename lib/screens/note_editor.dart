@@ -13,7 +13,7 @@ class NoteEditorScreen extends StatefulWidget {
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
   int color_id=Random().nextInt(AppStyle.cardColor.length);
-  String date=DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now()).toString();
+  String date=DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now()).toString();
   TextEditingController _titleController= TextEditingController();
   TextEditingController _mainController= TextEditingController();
   @override
@@ -53,7 +53,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
             SizedBox(
               height: 28.0,
             ),
-            TextField(
+            TextFormField(
               controller: _mainController,
               keyboardType: TextInputType.multiline,
               maxLines: null,
