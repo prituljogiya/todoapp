@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/screens/login_screen.dart';
+import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/screens/signup_screen.dart';
 import 'package:todoapp/style/app_style.dart';
 
@@ -20,9 +21,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: Column(
           children: [
             const Center(
-                child: Image(
-              image: AssetImage('assets/notes.png'),
-            )),
+                child:ReuseableImage()),
             Text(
               'your notes',
               style: GoogleFonts.roboto(

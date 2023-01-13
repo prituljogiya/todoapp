@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/screens/login_screen.dart';
+import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
 
 import 'home_screen.dart';
@@ -40,12 +41,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               ),
-              Center(
-                  child: Image(
-                height: 295,
-                width: 339,
-                image: AssetImage('assets/notes.png'),
-              )),
+          Container(
+            width: 240,
+            height: 240,
+            child: ReuseableImage(),
+          ),
               Text(
                 'Create an account',
                 style: GoogleFonts.roboto(
@@ -55,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               SizedBox(
-                height: 22.0,
+                height: 20.0,
               ),
               Center(
                 child: Container(
@@ -63,8 +63,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextField(
-                        //email textfield
+                      ReuseableWidget(icon: Icons.email,hinttext: "Email",),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      ReuseableWidget(icon: Icons.security,hinttext: "Password",iconsufix:Icons.visibility,isObsecure: true,),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      ReuseableWidget(icon: Icons.security,hinttext: "Confirm  Password",iconsufix:Icons.visibility,isObsecure: true,),
+
+
+
+                      /*  TextField(                 //email textfield
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -148,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           filled: true,
                           fillColor: Colors.white,
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todoapp/screens/login.dart';
+import 'package:todoapp/screens/login_screen.dart';
 import 'package:todoapp/screens/splash.dart';
 import 'dart:async';
 
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      //home: SplashScreen(),
+        home:SplashScreen(),
 
     );
   }

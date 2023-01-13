@@ -40,12 +40,7 @@ class _LogInscreenState extends State<LogInscreen> {
                 ),
               ],
             ),
-              Center(
-                  child: Image(
-                image: AssetImage('assets/notes.png'),
-              )),
-              ReuseableWidget(hinttext: "Email"),
-              ReuseableWidget(hinttext: "password"),
+            ReuseableImage(),
               Text(
                 'Sign In',
                 style: GoogleFonts.roboto(
@@ -63,58 +58,43 @@ class _LogInscreenState extends State<LogInscreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextField(                   //email textfield
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        controller: email=TextEditingController(),
-                        decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide()),
-                            prefixIcon: IconButton(
-                              icon: Icon(Icons.email),
-                              onPressed: () {},
-                            ),
-                            hintText: "Email",
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder()),
-                      ),
+                      ReuseableWidget(icon: Icons.email,hinttext: "Email",),
                       const SizedBox(
                         height: 20.0,
                       ),
-                      TextField(
-                        //password textfield
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        obscureText: _obscureText,
-                        controller: passText=TextEditingController(),
-                        decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide()),
-                            prefixIcon: IconButton(
-                              icon: Icon(Icons.lock),
-                              onPressed: () {},
-                            ),
-                          suffixIcon: GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                _obscureText =!_obscureText;
-                              });
-                            },
-                            child: Icon(_obscureText ? Icons.visibility : Icons
-                                .visibility_off),
-                          ),
-                          hintText: "password",
-                            // helperText:"Password must contain special character",
-                            // helperStyle:TextStyle(color:Colors.white),
-                            filled: true,
-                            fillColor: Colors.white,
-                      ),
-                      ),
+                      ReuseableWidget(icon: Icons.security,hinttext: "Password",iconsufix:Icons.visibility,isObsecure: true,),
+
+                      // TextField(
+                      //   //password textfield
+                      //   style: TextStyle(
+                      //     color: Colors.black,
+                      //   ),
+                      //   obscureText: _obscureText,
+                      //   controller: passText=TextEditingController(),
+                      //   decoration: InputDecoration(
+                      //       focusedBorder: OutlineInputBorder(
+                      //           borderRadius: BorderRadius.circular(10),
+                      //           borderSide: BorderSide()),
+                      //       prefixIcon: IconButton(
+                      //         icon: Icon(Icons.lock),
+                      //         onPressed: () {},
+                      //       ),
+                      //     suffixIcon: GestureDetector(
+                      //       onTap: (){
+                      //         setState(() {
+                      //           _obscureText =!_obscureText;
+                      //         });
+                      //       },
+                      //       child: Icon(_obscureText ? Icons.visibility : Icons
+                      //           .visibility_off),
+                      //     ),
+                      //     hintText: "password",
+                      //       // helperText:"Password must contain special character",
+                      //       // helperStyle:TextStyle(color:Colors.white),
+                      //       filled: true,
+                      //       fillColor: Colors.white,
+                      // ),
+                      // ),
                     ],
                   ),
                 ),

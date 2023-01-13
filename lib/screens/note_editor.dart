@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/style/app_style.dart';
+import 'package:intl/intl.dart';
 
 class NoteEditorScreen extends StatefulWidget {
   const NoteEditorScreen({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class NoteEditorScreen extends StatefulWidget {
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
   int color_id=Random().nextInt(AppStyle.cardColor.length);
-  String date=DateTime.now().toString();
+  String date=DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now()).toString();
   TextEditingController _titleController= TextEditingController();
   TextEditingController _mainController= TextEditingController();
   @override
