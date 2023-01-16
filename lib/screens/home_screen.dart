@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:todoapp/screens/login_screen.dart';
 import 'package:todoapp/screens/note_editor.dart';
+import 'package:todoapp/screens/signup_screen.dart';
 import 'package:todoapp/style/app_style.dart';
 import 'package:todoapp/widgets/note_card.dart';
 
@@ -20,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
-        elevation: 0.0,
+
+       /* elevation: 0.0,*/
         title: Text("Notes"),
         centerTitle: true,
         backgroundColor: AppStyle.mainColor,
@@ -90,4 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  PopupMenuItem _buildPopupMenuItem(String title) {
+    return PopupMenuItem(
+      child:  Text(title),
+    );
+  }
 }
+
