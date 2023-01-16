@@ -78,7 +78,6 @@ class _LogInscreenState extends State<LogInscreen> {
                 InkWell(
                   onTap: () {
 
-
                     if(_formKey.currentState!.validate())
                     {
                       showSuccessSnackBar("LogIn Successful");
@@ -142,8 +141,6 @@ class _LogInscreenState extends State<LogInscreen> {
                     ),
                   ],
                 ),
-
-
               ],
             ),
           )),
