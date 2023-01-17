@@ -36,6 +36,7 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
           ),
         ],
       ),
+
     ),
   );
 }
