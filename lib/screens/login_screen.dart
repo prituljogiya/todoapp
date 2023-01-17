@@ -19,6 +19,7 @@ class _LogInscreenState extends State<LogInscreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText= true;
 
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey= GlobalKey<ScaffoldState>();
@@ -68,7 +69,16 @@ class _LogInscreenState extends State<LogInscreen> {
                         const SizedBox(
                           height: 20.0,
                         ),
-                        RuseablePassword(icon: Icons.security_outlined, isObsecure:true, controller: passTextController,hinttext: "password",iconsufix: Icons.visibility,), ],
+                        ReuseablePass(icon: Icons.security, controller: passTextController),
+
+                        // RuseablePassword(
+                        //   icon: Icons.security_outlined,
+                        //   isObsecure:true,
+                        //   controller: passTextController,
+                        //   hinttext: "password",
+                        //   iconsufix: Icons.visibility,
+                        // ), ],
+                    ]
                     ),
                   ),
                 ),

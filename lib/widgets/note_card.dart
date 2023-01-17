@@ -15,10 +15,21 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            doc['note_title'],
-            style: AppStyle.mainTitle,
-          ),
+
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            Text(
+              doc['note_title'],
+              style: AppStyle.mainTitle,
+            ),
+            InkWell
+              (onTap: (){
+
+            },
+
+                child: Icon(Icons.delete,)),
+          ],),
+
           SizedBox(
             height: 4.0,
           ),

@@ -83,6 +83,63 @@ class ReuseableImage extends StatelessWidget {
 }
 
 
+class ReuseablePass extends StatefulWidget {
+  const ReuseablePass({Key? key,
+    this.hinttext,
+    required this.icon,
+    this.iconsufix,
+    // required this.isObsecure,
+    required this.controller
+  }) : super(key: key);
+  final String? hinttext;
+  final  IconData icon;
+  final  IconData? iconsufix;
+  // final bool isObsecure;
+  final TextEditingController controller;
+
+  @override
+  State<ReuseablePass> createState() => _ReuseablePassState();
+}
+
+class _ReuseablePassState extends State<ReuseablePass> {
+  bool _obscureText = true;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: (item) => item!.length>6 ? null :"Enter Atleast 6 Characters",
+      controller: widget.controller,
+      obscureText:_obscureText ,
+      style: TextStyle(color: Colors.black,),
+      //validator: validate,
+      decoration: InputDecoration(
+
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide()),
+
+          hintText:"password",
+
+          prefixIcon:Icon(
+              widget.icon
+          ),
+          suffixIcon : GestureDetector(
+            onTap: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+            child:
+             Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+          ),
+
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder()),
+    );
+  }
+}
 
 
 
@@ -103,19 +160,24 @@ class RuseablePassword extends StatefulWidget {
   State<RuseablePassword> createState() => _RuseablePasswordState();
 }
 
+
+
 class _RuseablePasswordState extends State<RuseablePassword> {
+  bool obsecureText = false;
+  @override
+  initState(){
+    obsecureText=widget.isObsecure;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    bool obsecureText = false;
-    initState(){
-      obsecureText=widget.isObsecure;
-      super.initState();
-    }
+
+
 
     return TextFormField(
       validator: (item) => item!.length>6 ? null :"Enter Atleast 6 Characters",
       controller: widget.controller,
-      obscureText: widget.isObsecure,
+      obscureText: !widget.isObsecure,
       style: TextStyle(color: Colors.black,),
       //validator: validate,
       decoration: InputDecoration(
@@ -130,7 +192,8 @@ class _RuseablePasswordState extends State<RuseablePassword> {
               widget.icon
           ),
           suffixIcon :Icon(
-              widget.iconsufix
+              widget.iconsufix != null ? Icons.visibility
+                  : Icons.visibility_off,
           ),
           filled: true,
           fillColor: Colors.white,
