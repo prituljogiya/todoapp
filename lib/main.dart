@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:todoapp/screens/login.dart';
-import 'package:todoapp/screens/login_screen.dart';
 import 'package:todoapp/screens/splash.dart';
 import 'dart:async';
 
-import 'package:todoapp/screens/welcome_screen.dart';
 
 
 Future<void> main() async {
