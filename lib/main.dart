@@ -4,7 +4,6 @@ import 'package:todoapp/screens/splash.dart';
 import 'dart:async';
 
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

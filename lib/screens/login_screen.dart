@@ -69,7 +69,7 @@ class _LogInscreenState extends State<LogInscreen> {
                         const SizedBox(
                           height: 20.0,
                         ),
-                        ReuseablePass(icon: Icons.security, controller: passTextController),
+                        ReuseablePass(icon: Icons.security, controller: passTextController,)
 
                         // RuseablePassword(
                         //   icon: Icons.security_outlined,

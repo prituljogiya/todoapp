@@ -15,7 +15,6 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
             Text(
@@ -24,12 +23,9 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
             ),
             InkWell
               (onTap: (){
-
             },
-
                 child: Icon(Icons.delete,)),
           ],),
-
           SizedBox(
             height: 4.0,
           ),
@@ -47,7 +43,6 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
           ),
         ],
       ),
-
     ),
   );
 }

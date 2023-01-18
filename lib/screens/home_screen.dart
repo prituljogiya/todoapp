@@ -41,8 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         backgroundColor: AppStyle.mainColor,
 
-
-
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
