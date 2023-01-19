@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:todoapp/screens/login_screen.dart';
 import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
+import 'package:todoapp/widgets/text_widget.dart';
+import '../validator/validator.dart';
+import '../widgets/tetfield_widget.dart';
 import 'home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -20,12 +23,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     var passTextController = TextEditingController();
     var nameController = TextEditingController();
     var emailController = TextEditingController();
     return Scaffold(
-        // key: scaffoldKey,
+       key: scaffoldKey,
         backgroundColor: Colors.black,
         body: Form(
           key: _formKey,
@@ -56,14 +59,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 240,
                   child: ReuseableImage(),
                 ),
-                Text(
-                  'Create an Account',
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
-                ),
+                TextWidget(title: 'Create an Account', txtSize: 22, txtColor: Colors.white,),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -73,41 +69,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFormField(
-                          controller: nameController,
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide()),
-                              hintText: "Name",
-                              prefixIcon: Icon(Icons.person, color: Colors.black),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder()),
+                        InputTxtField(hintText: "Your Name", controller: nameController, obsecureText: false,validator:nameValidator ,),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        InputTxtField(hintText: "Email", controller: emailController, obsecureText: false,validator:emailValidator ,),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        InputTxtField(hintText: "Your Password", controller: passTextController, obsecureText: true,validator:passwordValidator ,),
+                        const SizedBox(
+                          height: 20,
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        ReuseableWidget(
-                            icon: Icons.email,
-                            hinttext: 'email',
-                            controller: emailController),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        ReuseablePass(
-                            icon: Icons.security,
-                            controller: passTextController),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                       /* RuseablePassword(
-                          icon: Icons.security,
-                          controller: confirmPassTextController,
-                        ),*/
                         const SizedBox(
                           height: 20,
                         ),
@@ -144,25 +120,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     }on FirebaseAuthException catch(error, stackTrace){
                       print("Error ${error.toString()}");
                     }
-
-
-
-
-
-                  /*  FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passTextController.text,
-                    )
-                        .then((value) {
-                      print("Creaed a New  UserAccount");
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
-                    }).onError((error, stackTrace) {
-                      print("Error ${error.toString()}");
-                    });*/
                   },
                   child: Container(
                     height: 53,

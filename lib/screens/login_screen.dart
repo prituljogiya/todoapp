@@ -39,10 +39,13 @@ class _LogInscreenState extends State<LogInscreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20,left: 20.0),
                     child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
-                        },
-                        child: Icon(Icons.arrow_back,
+                        onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WelcomeScreen()));
+                          },
+                          child: Icon(Icons.arrow_back,
                           color: Colors.white,)),
                   ),
                 ],
@@ -65,13 +68,20 @@ class _LogInscreenState extends State<LogInscreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ReuseableWidget(icon: Icons.email,hinttext: "Email",controller:emailController,),
-                        const SizedBox(
+                          ReuseableWidget(
+                            icon: Icons.email,
+                            hinttext: "Email",
+                            controller: emailController,
+                          ),
+                          const SizedBox(
                           height: 20.0,
                         ),
-                        ReuseablePass(icon: Icons.security, controller: passTextController,)
+                          ReuseablePass(
+                            icon: Icons.security,
+                            controller: passTextController,
+                          )
 
-                        // RuseablePassword(
+                          // RuseablePassword(
                         //   icon: Icons.security_outlined,
                         //   isObsecure:true,
                         //   controller: passTextController,
@@ -97,14 +107,19 @@ class _LogInscreenState extends State<LogInscreen> {
                       showErrorSnackBar("Log In failed");
                     }
 
-                    FirebaseAuth.instance.signInWithEmailAndPassword(email:emailController.text, password:passTextController.text).then((value) {
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                            email: emailController.text,
+                            password: passTextController.text)
+                        .then((value) {
                       print(" successfully login");
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
                     }).onError((error, stackTrace) {
                       print("Error ${error.toString()}");
                     });
-
                   },
                   child: Container(
                     height: 53,
@@ -138,7 +153,10 @@ class _LogInscreenState extends State<LogInscreen> {
                     ),
                     InkWell(
                       onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()));
                       },
                       child: Text(
                         "Create Account",

@@ -20,31 +20,19 @@ class InputTxtField extends StatelessWidget {
       controller: controller,
       validator: validator,
       obscureText: obsecureText,
-      style: GoogleFonts.roboto(
-        color: Color(0xff888b91),
-        fontSize: 20
+      style: TextStyle(
+        color: Colors.black,
       ),
-      decoration:  InputDecoration(
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            width: 3,
-            color: Color(0xff999a9e),
-          ),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            width: 3,
-            color: Color(0xff999a9e),
-          ),
-        ),
-        border: const UnderlineInputBorder(),
-        hintText: hintText,
-        hintStyle: GoogleFonts.roboto(
-          fontWeight: FontWeight.bold,
-          color: Color(0xff888b91),
-          fontSize: 18,
-        ),
-      ),
+      decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide()),
+          hintText:hintText,
+          prefixIcon: Icon(Icons.person, color: Colors.black),
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder()),
     );
+
   }
 }

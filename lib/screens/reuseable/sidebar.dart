@@ -43,6 +43,11 @@ class _SideBarState extends State<SideBar> {
             style: TextStyle(color: Colors.white),),
             trailing: Icon(Icons.favorite,color: Colors.white,),
           ),
+          ListTile(
+            title: Text("Feedback",
+              style: TextStyle(color: Colors.white),),
+            trailing: Icon(Icons.feedback,color: Colors.white,),
+          ),
           InkWell(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>LogInscreen()));

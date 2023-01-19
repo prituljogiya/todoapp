@@ -1,3 +1,7 @@
+
+
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/style/app_style.dart';
@@ -22,8 +26,10 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
               style: AppStyle.mainTitle,
             ),
             InkWell
-              (onTap: (){
-            },
+              (
+                onTap: (){
+
+              },
                 child: Icon(Icons.delete,)),
           ],),
           SizedBox(
