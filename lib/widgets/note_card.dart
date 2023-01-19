@@ -1,3 +1,7 @@
+
+
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/style/app_style.dart';
@@ -22,8 +26,29 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
               style: AppStyle.mainTitle,
             ),
             InkWell
-              (onTap: (){
-            },
+              (
+                onTap: (){
+                  var context;
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                      title:Text("are you deleting this note?"),
+                  content: Text("Delete or not"),
+                  actions: [
+                  TextButton(onPressed: (){
+                  print("note delteted");
+                  },
+                  child: Text("Delete"),),
+                  TextButton(onPressed: (){
+                  print("cancel pressed");
+                  },
+                  child: Text("cancle"),),
+                  ],
+                      )
+                  );
+
+
+              },
                 child: Icon(Icons.delete,)),
           ],),
           SizedBox(
