@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/screens/login_screen.dart';
+import 'package:todoapp/login_screen/login_screen.dart';
 import 'package:todoapp/screens/reuseable/reuse_widget.dart';
-import 'package:todoapp/screens/signup_screen.dart';
+import 'package:todoapp/signup_screen/signup_screen.dart';
 import 'package:todoapp/style/app_style.dart';
+
+import '../reuseable/reuse_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

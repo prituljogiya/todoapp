@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/screens/home_screen.dart';
+import 'package:todoapp/home_screen/home_screen.dart';
 import 'package:todoapp/screens/reuseable/reuse_widget.dart';
-import 'package:todoapp/screens/signup_screen.dart';
+import 'package:todoapp/signup_screen/signup_screen.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
 
+import '../home_screen/home_screen.dart';
+import '../reuseable/reuse_widget.dart';
 import '../style/app_style.dart';
 
 class LogInscreen extends StatefulWidget {
@@ -106,6 +108,7 @@ class _LogInscreenState extends State<LogInscreen> {
                     {
                       showErrorSnackBar("Log In failed");
                     }
+
 
                     FirebaseAuth.instance
                         .signInWithEmailAndPassword(

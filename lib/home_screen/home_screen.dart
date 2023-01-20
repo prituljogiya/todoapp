@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/screens/login_screen.dart';
+import 'package:todoapp/login_screen/login_screen.dart';
 import 'package:todoapp/screens/note_editor.dart';
 import 'package:todoapp/screens/reuseable/sidebar.dart';
-import 'package:todoapp/screens/signup_screen.dart';
+import 'package:todoapp/signup_screen/signup_screen.dart';
 import 'package:todoapp/style/app_style.dart';
 import 'package:todoapp/widgets/note_card.dart';
 
-import 'note_reader.dart';
+import '../reuseable/sidebar.dart';
+import '../screens/note_reader.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

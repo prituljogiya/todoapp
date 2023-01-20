@@ -1,8 +1,6 @@
 
-
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/style/app_style.dart';
 
@@ -27,9 +25,17 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
             ),
             InkWell
               (
-                onTap: (){
+                onTap: () {
+                  CupertinoAlertDialog(
+                    title: doc['note_title'],
+                    content: doc['note_content'],
+                   actions: [
+                     CupertinoDialogAction(child: Text("delete")),
 
-              },
+                   ],
+                  );
+
+                },
                 child: Icon(Icons.delete,)),
           ],),
           SizedBox(

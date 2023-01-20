@@ -2,13 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todoapp/screens/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todoapp/login_screen/login_screen.dart';
 import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
 import 'package:todoapp/widgets/text_widget.dart';
+import '../home_screen/home_screen.dart';
+import '../reuseable/reuse_widget.dart';
 import '../validator/validator.dart';
 import '../widgets/tetfield_widget.dart';
-import 'home_screen.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -20,6 +23,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -106,13 +110,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     final String email = emailController.text;
                     final String name = nameController.text;
                     final String password = passTextController.text;
+
+
+                    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
                     try{
-                      final UserCredential userCredential= await auth.createUserWithEmailAndPassword(email: email, password: password);
+                      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+                       UserCredential userCredential= await auth.createUserWithEmailAndPassword(email: email, password: password);
                       await db.collection('users').doc(userCredential.user!.uid).set({
                         name: name,
                         email: email,
                         password: password,
                       });
+                      User? user = userCredential.user;
+                      print(user);
+
+
 
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),)
                         ,

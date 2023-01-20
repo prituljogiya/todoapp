@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gif/flutter_gif.dart';
-import 'package:todoapp/screens/home_screen.dart';
+import 'package:todoapp/home_screen/home_screen.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
 
 

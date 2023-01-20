@@ -1,9 +1,10 @@
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:todoapp/screens/home_screen.dart';
 import 'package:todoapp/style/app_style.dart';
 import 'package:intl/intl.dart';
+
+import '../home_screen/home_screen.dart';
 
 class NoteEditorScreen extends StatefulWidget {
   const NoteEditorScreen({Key? key}) : super(key: key);
