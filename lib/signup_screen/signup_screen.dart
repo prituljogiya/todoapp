@@ -111,8 +111,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     final String name = nameController.text;
                     final String password = passTextController.text;
 
-
-                    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
                     try{
                       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
@@ -120,7 +118,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       await db.collection('users').doc(userCredential.user!.uid).set({
                         name: name,
                         email: email,
-                        password: password,
                       });
                       User? user = userCredential.user;
                       print(user);

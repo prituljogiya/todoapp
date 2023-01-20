@@ -1,12 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/home_screen/home_screen.dart';
-import 'package:todoapp/screens/reuseable/reuse_widget.dart';
 import 'package:todoapp/signup_screen/signup_screen.dart';
 import 'package:todoapp/screens/welcome_screen.dart';
-
-import '../home_screen/home_screen.dart';
 import '../reuseable/reuse_widget.dart';
 import '../style/app_style.dart';
 
@@ -82,14 +81,6 @@ class _LogInscreenState extends State<LogInscreen> {
                             icon: Icons.security,
                             controller: passTextController,
                           )
-
-                          // RuseablePassword(
-                        //   icon: Icons.security_outlined,
-                        //   isObsecure:true,
-                        //   controller: passTextController,
-                        //   hinttext: "password",
-                        //   iconsufix: Icons.visibility,
-                        // ), ],
                     ]
                     ),
                   ),
@@ -98,7 +89,7 @@ class _LogInscreenState extends State<LogInscreen> {
                   height: 20.0,
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async{
 
                     if(_formKey.currentState!.validate())
                     {
@@ -108,9 +99,38 @@ class _LogInscreenState extends State<LogInscreen> {
                     {
                       showErrorSnackBar("Log In failed");
                     }
+                    FirebaseAuth auth = FirebaseAuth.instance;
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    final String email = emailController.text;
+                    final String password = passTextController.text;
+                      try {
+                        UserCredential userCredential =
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: email,
+                          password: password,
+                        );
+                        SharedPreferences prefs = await SharedPreferences.getInstance();
+                       await prefs.setString(email,email!) ;
+                       await prefs.setString(password,password!);
 
 
-                    FirebaseAuth.instance
+                        if (userCredential.user != null) {
+                          // ignore: use_build_context_synchronously
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => const HomeScreen()));
+                        }
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(content: Text('User Not Found')));
+                        } else if (e.code == 'wrong-password') {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(content: Text('Invalid Password')));
+                        }
+                      }
+
+
+                    /*FirebaseAuth.instance
                         .signInWithEmailAndPassword(
                             email: emailController.text,
                             password: passTextController.text)
@@ -122,7 +142,7 @@ class _LogInscreenState extends State<LogInscreen> {
                               builder: (context) => HomeScreen()));
                     }).onError((error, stackTrace) {
                       print("Error ${error.toString()}");
-                    });
+                    });*/
                   },
                   child: Container(
                     height: 53,
